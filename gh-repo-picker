@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-spin[0]="-"
-spin[1]="\\"
-spin[2]="|"
-spin[3]="/"
-
 QUERY='
   query($endCursor: String) {
     viewer {
@@ -20,23 +15,7 @@ QUERY='
   }
 '
 
-gh api graphql --paginate -f query="${QUERY}" --jq '.data.viewer.repositories.nodes.[].nameWithOwner' > .repos.txt & PID=$!
+repos=$(gh api graphql --paginate -f query="${QUERY}" --jq '.data.viewer.repositories.nodes.[].nameWithOwner')
+selected_repo=$(echo "$repos" | fzf --height 40% --layout=reverse --border)
 
-echo "This may take a while. Please be patient while it runs"
-printf "["
-while kill -0 $PID 2>/dev/null; do
-  # for i in "${spin[@]}"; do
-  # echo -ne "\b$i"
-  printf "▓"
-  sleep 0.5
-  # done
-done
-printf "] done!\n"
-
-repo=$(cat .repos.txt | fzf)
-if [ -z $repo ]; then
-  echo "Please choose a repository"
-  exit 1
-fi
-
-echo $repo
+echo $selected_repo
