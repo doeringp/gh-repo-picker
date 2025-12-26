@@ -6,11 +6,9 @@ spin[1]="\\"
 spin[2]="|"
 spin[3]="/"
 
-user=$(gh api user -q .login)
-
 QUERY='
-  query($owner: String!, $endCursor: String) {
-    repositoryOwner(login: $owner) {
+  query($endCursor: String) {
+    viewer {
       repositories(first: 100, after: $endCursor) {
         nodes { nameWithOwner }
         pageInfo {
@@ -22,7 +20,7 @@ QUERY='
   }
 '
 
-gh api graphql --paginate -F owner="${1:-$user}" -f query="${QUERY}" --jq '.data.repositoryOwner.repositories.nodes.[].nameWithOwner' > .repos.txt & PID=$!
+gh api graphql --paginate -f query="${QUERY}" --jq '.data.viewer.repositories.nodes.[].nameWithOwner' > .repos.txt & PID=$!
 
 echo "This may take a while. Please be patient while it runs"
 printf "["

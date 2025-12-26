@@ -26,9 +26,3 @@ To list all you GitHub repositories you have access to:
 ```sh
 gh repo-picker
 ```
-
-To list GitHub repositories of a particular user / organisation:
-
-```sh
-gh repo-picker <username/organisation-name>
-```
