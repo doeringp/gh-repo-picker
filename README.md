@@ -1,61 +1,34 @@
-# gh-repo-fzf
+# gh-repo-picker
 
-A `gh` cli to fuzzy search your repositories and do an action with them
-![gh-repo-fzf](https://user-images.githubusercontent.com/41034356/144628703-caaf0921-8d1a-4913-b5a0-24b5f7269549.gif)
+This GitHub CLI (`gh`) extension helps you to interactively find and pick one of your GitHub repositories.
+With *your* repositories, I mean repositories you own at GitHub or have been given access to.
+After you have selected a repository, the name is printed to `stdout`, so you can use it in scripts or pipe it to other commands.
 
-## Requirements
+The extension uses the [fzf command-line fuzzy finder](https://github.com/junegunn/fzf) as UI to interactively search and select a repository.
+The [search syntax](https://junegunn.github.io/fzf/search-syntax/) of `fzf`, gives you a powerful way to find the repository you want with a few keystrokes.
 
-1. `gh cli` - minimum version (2.0.0)
+## Prerequisites
 
-2. `fzf`
+1. [GitHub CLI](https://cli.github.com) (`gh`) - minimum version (2.0.0)
 
-## Installation
+2. `fzf` (Installation instructions [here](https://junegunn.github.io/fzf/installation/))
+
+## Install the extension
 
 ```sh
-gh extension install kavinvalli/gh-repo-fzf
+gh extension install https://github.com/doeringp/gh-repo-picker
 ```
-
-### Installing Manually
-
-> To install this extension **manually**, follow these steps:
-
-1. Clone repo
-
-   ```bash
-   # git
-   git clone https://github.com/kavinvalli/gh-repo-fzf
-
-   # github cli
-   gh repo clone kavinvalli/gh-fzf
-   ```
-
-2. cd into it
-
-   ```bash
-   cd gh-repo-fzf
-   ```
-
-3. Install it locally
-   ```bash
-   gh extension install .
-   ```
-   
-## Available actions
-- Clone
-- View
-- Fork
-- Archive
 
 ## Usage
 
-- To list all directories you have access to, run:
+To list all you GitHub repositories you have access to:
 
 ```sh
-gh repo-fzf
+gh repo-picker
 ```
 
-- To list directories of a particular user / organisation:
+To list GitHub repositories of a particular user / organisation:
 
 ```sh
-gh repo-fzf <username/organisation-name>
+gh repo-picker <username/organisation-name>
 ```
