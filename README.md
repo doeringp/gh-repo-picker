@@ -40,14 +40,24 @@ gh repo clone $(gh repo-picker)
 ### Open the repository in the browser
 
 ```sh
-gh repo view --web $(gh repo-picker)
+gh browse --repo $(gh repo-picker)
 ```
 
 ### Aliases
 
-The GitHub CLI allows you to create [aliases](https://cli.github.com/manual/gh_alias_set) for commands.
+The GitHub CLI supports [aliases](https://cli.github.com/manual/gh_alias_set) for custom commands. Create aliases for repository actions you use frequently to save time.
+
+For example, create aliases for the commands above:
 
 ```sh
+# Clone one of your repositories
 gh alias set --shell clone 'gh repo clone $(gh repo-picker)'
-gh alias set --shell open 'gh repo view --web $(gh repo-picker)'
+
+# Open one of your repositories in the web browser
+gh alias set --shell open 'gh browse --repo $(gh repo-picker) $@'
+
+# Now you can use the aliases like this:
+gh clone
+gh open
+gh open --settings # to jump directly to the settings page of the selected repository
 ```
