@@ -41,18 +41,4 @@ if [ -z $repo ]; then
   exit 1
 fi
 
-option=$(echo "clone view fork archive" | tr " " "\n" | fzf)
-if [ -z $option ]; then
-  echo "Please choose an option"
-  exit 1
-fi
-
-if [ $option = "clone" ]; then
-  gh repo clone $repo
-elif [ $option = "view" ]; then
-  gh repo view $repo --web
-elif [ $option = "fork" ]; then
-  gh repo fork $repo
-elif [ $option = "archive" ]; then
-  gh repo archive $repo
-fi
+echo $repo
