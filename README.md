@@ -26,3 +26,28 @@ To list all you GitHub repositories you have access to:
 ```sh
 gh repo-picker
 ```
+
+## Examples
+
+The following examples show how to use the `gh repo-picker` extension in combination with other `gh` commands.
+
+### Clone a repository
+
+```sh
+gh repo clone $(gh repo-picker)
+```
+
+### Open the repository in the browser
+
+```sh
+gh repo view --web $(gh repo-picker)
+```
+
+### Aliases
+
+The GitHub CLI allows you to create [aliases](https://cli.github.com/manual/gh_alias_set) for commands.
+
+```sh
+gh alias set --shell clone 'gh repo clone $(gh repo-picker)'
+gh alias set --shell open 'gh repo view --web $(gh repo-picker)'
+```
