@@ -7,6 +7,8 @@ After you have selected a repository, the name is printed to `stdout`, so you ca
 The extension uses the [fzf command-line fuzzy finder](https://github.com/junegunn/fzf) as UI to interactively search and select a repository.
 The [search syntax](https://junegunn.github.io/fzf/search-syntax/) of `fzf`, gives you a powerful way to find the repository you want with a few keystrokes.
 
+![Demo](https://github.com/user-attachments/assets/965a616d-0d2a-4352-8e2e-b6cada424b80)
+
 ## Prerequisites
 
 1. [GitHub CLI](https://cli.github.com) (`gh`) - minimum version (2.0.0)
