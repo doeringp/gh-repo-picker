@@ -29,9 +29,9 @@ To list all you GitHub repositories you have access to:
 gh repo-picker
 ```
 
-## Examples
+The command opens the `fzf` interactive finder, where you can search and select a repository using fzf's powerful [search syntax](https://junegunn.github.io/fzf/search-syntax/). If you've selected a repository, its name (in the format `owner/repo`) is printed to `stdout`.
 
-The following examples show how to use the `gh repo-picker` extension in combination with other `gh` commands.
+The `gh repo-picker` command can easily be combined with other `gh` commands:
 
 ### Clone a repository
 
@@ -45,7 +45,7 @@ gh repo clone $(gh repo-picker)
 gh browse --repo $(gh repo-picker)
 ```
 
-### Aliases
+### Aliases (Recommended)
 
 The GitHub CLI supports [aliases](https://cli.github.com/manual/gh_alias_set) for custom commands. Create aliases for repository actions you use frequently to save time.
 
