@@ -63,3 +63,16 @@ gh clone
 gh open
 gh open --settings # to jump directly to the settings page of the selected repository
 ```
+
+### GitHub Enterprise Server
+
+The GitHub CLI supports GitHub Enterprise Server.
+However the `gh repo-picker` command lists only your repositories from github.com by default. To use a GitHub Enterprise Server instance instead, set the `GH_HOST` environment variable:
+
+```sh
+export GH_HOST=<hostname>
+gh repo-picker
+```
+
+> [!NOTE]
+> Make sure you have authenticated to the GitHub Enterprise Server instance with `gh auth login --hostname <hostname>` before.
